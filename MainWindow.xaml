@@ -1,0 +1,147 @@
+﻿<Window x:Class="BankDB.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BankDB"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="900" MinHeight="650" MinWidth="900" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="212*"/>
+            <RowDefinition Height="94*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="241*"/>
+            <ColumnDefinition Width="275*"/>
+            <ColumnDefinition Width="278*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Margin="20 10 0 10" TextWrapping="Wrap" 
+                   Text="Клиенты:" VerticalAlignment="Center" FontSize="26" Height="35" Width="107" />
+            <Image Source="add1.png" Width="36" Height="36" Margin="5 5 0 0" Cursor="Hand" MouseLeftButtonDown="Create_Customer" ToolTip="Создать Клиента"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Margin="20 10 0 10" TextWrapping="Wrap" 
+                   Text="Аккаунты" VerticalAlignment="Center" FontSize="26" Height="35"  />
+            <Image x:Name="createAccountIMG" Source="add1.png" Width="36" Height="36" Margin="5 5 0 0" MouseLeftButtonDown="Create_Account" Cursor="Hand" Visibility="Hidden" ToolTip="Создать новый счет"/>
+        </StackPanel>
+        <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" Margin="92.2,11,92.6,12.4" TextWrapping="Wrap" Text="Операции:" VerticalAlignment="Center" FontSize="26" Height="35" Width="128" />
+
+        <ListBox Grid.Row="1" Grid.Column="0" x:Name="CustomerList" HorizontalAlignment="Center" Height="410" VerticalAlignment="Top" Width="231" ItemsSource="{Binding Customers}" SelectionChanged="CustomerList_SelectionChanged" Margin="20,0.6,20.2,0" Background="#FFFFF8F8">
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+
+                        <Image Source="usericon.png" Width="24" Height="24"/>
+                        <StackPanel Margin="5">
+                            <TextBlock Text="{Binding CustomerName}" Margin="0" FontSize="15"/>
+                            <TextBlock Text="{Binding CustomerSurname}" Margin="0" FontSize="10"  />
+                        </StackPanel>
+                    </StackPanel>
+
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+
+
+        <ListBox x:Name="AccountList" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="410"  VerticalAlignment="Top" Width="256" Margin="26.8,0.6,26.8,0" Background="#FFFAFAFA" >
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+
+                        <Image Source="account.png" Width="24" Height="24"/>
+                        <StackPanel Margin="5">
+                            <TextBlock Text="{Binding AccountNumber}" Margin="0" FontSize="15"/>
+                            <TextBlock Text="{Binding Balance}" Margin="0" FontSize="10"  />
+                        </StackPanel>
+                    </StackPanel>
+
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical" Height="410"  HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0.2,0.6,-0.4,0">
+
+            <TextBlock x:Name="textBlock"  HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Баланс счета:" VerticalAlignment="Top" />
+
+            <TextBox x:Name="CustomerBalance" Background="AntiqueWhite"  
+                       Text="{Binding ElementName=AccountList, Path=SelectedItem.Balance}"
+                       Margin="10,5,0,0" Padding="5" Width="240" HorizontalAlignment="Left"/>
+
+
+            <Button x:Name="create_account" Content="Открыть новый счет"  HorizontalAlignment="Left" Margin="10,10,0,0" 
+                    VerticalAlignment="Top" Width="240" Height="31"  IsEnabled="False" Click="Create_Account" />
+
+            <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="10,20,0,0" 
+                       TextWrapping="Wrap" Text="Выберите клиента для перевода:" VerticalAlignment="Top" />
+
+            <ComboBox x:Name="customer_transfer"  HorizontalAlignment="Left" Margin="10,10,0,0" 
+                      VerticalAlignment="Top" Width="240" Height="50" ItemsSource="{Binding Customers}" SelectionChanged="ComboBox_SelectionChanged" >
+
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+
+                            <Image Source="usericon.png" Width="24" Height="24"/>
+                            <StackPanel Margin="5">
+                                <TextBlock Text="{Binding CustomerName}" Margin="0" FontSize="15"/>
+                                <TextBlock Text="{Binding CustomerSurname}" Margin="0" FontSize="10"  />
+                            </StackPanel>
+                        </StackPanel>
+
+
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+
+            </ComboBox>
+
+            <TextBlock x:Name="textBlock_Copy1"  HorizontalAlignment="Left" Margin="10,10,0,0" 
+                       TextWrapping="Wrap" Text="Выберите счет для перевода:" VerticalAlignment="Top"  />
+
+
+            <ComboBox x:Name="account_transfer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" 
+                      Width="240" Height="50" SelectionChanged="account_selected">
+
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+
+                            <Image Source="usericon.png" Width="24" Height="24"/>
+                            <StackPanel Margin="5">
+                                <TextBlock Text="{Binding AccountNumber}" Margin="0" FontSize="15"/>
+                                <TextBlock Text="{Binding Balance}" Margin="0" FontSize="10"/>
+                            </StackPanel>
+                        </StackPanel>
+
+
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+
+            </ComboBox>
+
+            <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" 
+                       Text="Укажите сумму перевода:" VerticalAlignment="Top" Height="16" Width="142"/>
+
+            <TextBox x:Name="amount_value" Background="AntiqueWhite"  Text="0"  Margin="10,10,0,0" Padding="5" Width="240" HorizontalAlignment="Left"/>
+
+            <Button x:Name="send_monay" Content="Отправить"  HorizontalAlignment="Left" Margin="10,10,0,0" 
+                    VerticalAlignment="Top" Width="240" Height="31" Click="send_money" IsEnabled="False" />
+
+
+        </StackPanel>
+
+        <ListBox x:Name="log"  Grid.Row="2" Grid.Column ="0" Grid.ColumnSpan="3" ItemsSource="{Binding Logs}"  Background="#FFE8D5D5"/>
+
+
+
+    </Grid>
+</Window>

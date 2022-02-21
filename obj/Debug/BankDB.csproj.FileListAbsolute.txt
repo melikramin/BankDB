@@ -1,0 +1,15 @@
+C:\Users\Ramin\YandexDisk\C#\SKILLBOX\13 OOP-3\BANK\BankDB\bin\Debug\BankDB.exe.config
+C:\Users\Ramin\YandexDisk\C#\SKILLBOX\13 OOP-3\BANK\BankDB\bin\Debug\BankDB.exe
+C:\Users\Ramin\YandexDisk\C#\SKILLBOX\13 OOP-3\BANK\BankDB\bin\Debug\BankDB.pdb
+C:\Users\Ramin\YandexDisk\C#\SKILLBOX\13 OOP-3\BANK\BankDB\obj\Debug\BankDB.csprojAssemblyReference.cache
+C:\Users\Ramin\YandexDisk\C#\SKILLBOX\13 OOP-3\BANK\BankDB\obj\Debug\MainWindow.g.cs
+C:\Users\Ramin\YandexDisk\C#\SKILLBOX\13 OOP-3\BANK\BankDB\obj\Debug\App.g.cs
+C:\Users\Ramin\YandexDisk\C#\SKILLBOX\13 OOP-3\BANK\BankDB\obj\Debug\BankDB_MarkupCompile.cache
+C:\Users\Ramin\YandexDisk\C#\SKILLBOX\13 OOP-3\BANK\BankDB\obj\Debug\BankDB_MarkupCompile.lref
+C:\Users\Ramin\YandexDisk\C#\SKILLBOX\13 OOP-3\BANK\BankDB\obj\Debug\MainWindow.baml
+C:\Users\Ramin\YandexDisk\C#\SKILLBOX\13 OOP-3\BANK\BankDB\obj\Debug\BankDB.g.resources
+C:\Users\Ramin\YandexDisk\C#\SKILLBOX\13 OOP-3\BANK\BankDB\obj\Debug\BankDB.Properties.Resources.resources
+C:\Users\Ramin\YandexDisk\C#\SKILLBOX\13 OOP-3\BANK\BankDB\obj\Debug\BankDB.csproj.GenerateResource.cache
+C:\Users\Ramin\YandexDisk\C#\SKILLBOX\13 OOP-3\BANK\BankDB\obj\Debug\BankDB.csproj.CoreCompileInputs.cache
+C:\Users\Ramin\YandexDisk\C#\SKILLBOX\13 OOP-3\BANK\BankDB\obj\Debug\BankDB.exe
+C:\Users\Ramin\YandexDisk\C#\SKILLBOX\13 OOP-3\BANK\BankDB\obj\Debug\BankDB.pdb
